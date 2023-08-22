@@ -1,11 +1,17 @@
-// Import the Express framework and create a router
 const express = require('express');
 const router = express.Router();
 
 // Routes
-// Define a route for the root URL ('/')
-router.get('/', (req, res) => {
-    res.send("Hello world");
+router.get('', (req, res) => {
+    const locals = {
+        title: "Ruslan Blog",
+        description: "CodingWithRuslan Blog made with Node.js, Express & MongoDB"
+    };
+    res.render('index', locals); // Pass 'locals' directly to res.render
+});
+
+router.get('/about', (req, res) => {
+    res.render('about');
 });
 
 // Export the router to be used in other modules
