@@ -5,8 +5,14 @@ require('dotenv').config();
 const express = require('express');
 const expressLayout = require('express-ejs-layouts');
 
+const connectDB = require('./server/config/db');
+
 // Create an instance of the Express application
 const app = express();
+
+  
+// Connect to DB
+connectDB();
 
 app.use(express.static('public'));
 
